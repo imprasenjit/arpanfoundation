@@ -12,36 +12,36 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <div>
+                                <?php if ($errors) {
+                                    foreach ($errors as $values) {
+                                        echo '<h4>' . $values . '</h4>';
+                                    }
+                                } ?>
+                            </div>
+                            <form class="user" action="registration/create" method="post">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                                        <input type="text" class="form-control form-control-user" id="FirstName" name="FirstName" placeholder="First Name">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
+                                        <input type="text" class="form-control form-control-user" id="LastName" name="LastName" placeholder="Last Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                                    <input type="email" class="form-control form-control-user" name="Email" id="Email" placeholder="Email Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" name="Password" id="Password" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        <input type="password" class="form-control form-control-user" name="ConfirmPassword" id="ConfirmPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Submit</button>
                                 <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+
                             </form>
                             <hr>
                             <div class="text-center">
