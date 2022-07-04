@@ -40,7 +40,7 @@ class Registration extends BaseController
                 'firstname' => $data['FirstName'],
                 'lastname' => $data['LastName'],
                 'email' => $data['Email'],
-                'password' => $data['Password']
+                'password' => password_hash($data['Password'], PASSWORD_DEFAULT) // password_hash("admin",PASSWORD_DEFAULT)
             );
             $registrationModel->insert($insertData);
 

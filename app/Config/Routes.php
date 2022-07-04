@@ -16,6 +16,7 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
  * Router Setup
  * --------------------------------------------------------------------
  */
+$routes->setAutoRoute(true);
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
@@ -39,7 +40,7 @@ $routes->get('/', 'Home::welcome');
 $routes->get('/login', 'Login::index');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration/create', 'Registration::create');
-$routes->get('/home', 'Home::index');
+$routes->get('/admin', 'Admin::index');
 
 /*
  * --------------------------------------------------------------------
