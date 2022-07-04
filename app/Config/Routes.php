@@ -40,7 +40,7 @@ $routes->get('/', 'Home::welcome');
 $routes->get('/login', 'Login::index');
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration/create', 'Registration::create');
-$routes->get('/admin', 'Admin::index');
+$routes->get('/dashboard', 'Dashboard::index');
 
 /*
  * --------------------------------------------------------------------

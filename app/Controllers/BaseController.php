@@ -49,4 +49,17 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
+
+    public function isLoggedIn()
+    {
+        $session = \Config\Services::session();
+        // echo '<pre>';
+        // var_dump($session->isLoggedIn);
+        // die;
+        if ($session->isLoggedIn != NULL) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -36,9 +36,10 @@ class Login extends BaseController
                     "user_id" => $user["user_id"],
                     "firstname" => $user["firstname"],
                     "lastname" => $user["lastname"],
+                    "email" => $user["email"],
                     "isLoggedIn" => true
                 ]);
-                return redirect()->route('admin');
+                return redirect()->route('dashboard');
             } else {
                 $error = [
                     'errors' => ["invalid credientials"]
@@ -46,5 +47,11 @@ class Login extends BaseController
                 return view('requires/header') . view('login', $error) . view('requires/footer');
             }
         }
+    }
+    public function logout()
+    {
+        $session = \Config\Services::session();
+        $session->destroy();
+        return redirect()->route('login');
     }
 }
