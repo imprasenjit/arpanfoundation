@@ -17,7 +17,7 @@
                     <form action="<?= base_url("projects/save") ?>" method="post">
                         <div class="form-group">
                             <label for="project_title">Project Title</label>
-                            <input type="text" class="form-control" name="project_title" id="project_title">
+                            <input type="text" class="form-control" name="project_title" id="project_title" value='<?php  ?>'>
                         </div>
                         <div class="form-group">
                             <label for="project_type">Project Type</label>
@@ -98,14 +98,7 @@
                                     });
                                 </script>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="status">Status</label>
-                                <select class="form-control" id="status" name="status">
-                                    <option value="Ongoing">Ongoing</option>
-                                    <option value="Completed">Completed</option>
-                                    <option value="Not_started">Not Started</option>
-                                </select>
-                            </div>
+                            
                         </div>
                         <div class="row">
                             <div class="form-group col-md-4">

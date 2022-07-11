@@ -40,7 +40,7 @@
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     <div>
-                                        <?php if ($errors) {
+                                        <?php if (isset($errors)) {
                                             foreach ($errors as $values) {
                                                 echo '<h4>' . $values . '</h4>';
                                             }
