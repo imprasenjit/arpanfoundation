@@ -28,12 +28,13 @@ class Projects extends BaseController
     public function save()
     {
         helper(['form', 'url']);
-        $projectModel = model('App\Models\admin\projects');
+        $projectModel = model('App\Models\admin\projectModel');
         $request = \Config\Services::request();
+        $session = \Config\Services::session();
         $rules = [
             'project_title' => "required",
             'project_type' => "required",
-            'sponsered_body' => "required",
+            'sponsored_body' => "required",
             'project_state' => 'required',
             'project_district' => 'required',
             'location' => 'required',
@@ -42,13 +43,17 @@ class Projects extends BaseController
             'start_date' => 'required',
             'end_date' => 'required',
             'about_the_project' => 'required',
-            
+
         ];
         if (!$this->validate($rules)) {
             $error = [
                 'errors' => $this->validator->getErrors(),
             ];
-            return view('requires/header') . view('registration', $error) . view('requires/footer');
+            $data = [
+                "firstName" => $session->firstname,
+                "lastName" => $session->lastname
+            ];
+            return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/projects/projects_entry', $error) . view('admin/requires/footer');
         } else {
             $data = $request->getPost();
 
@@ -63,12 +68,13 @@ class Projects extends BaseController
                 'status' => $data['status'],
                 'start_date' => $data['start_date'],
                 'end_date' => $data['end_date'],
-                'about_project' => $data['about_the_project'],                
-            
-            );
-            $projectsModel->insert($insertData);
+                'about_project' => $data['about_the_project'],
 
-            return view('data_inserted_successfully', ["form_data" => $data]);
+            );
+            $projectModel->insert($insertData);
+
+
+            return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/projects/projects_entry', ["message" => "Data Inserted Successfully"]) . view('admin/requires/footer');
         }
         // print_r($request->getPost());
     }

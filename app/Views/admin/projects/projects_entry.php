@@ -14,6 +14,18 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
+                    <div>
+                        <?php if (isset($message)) {
+                            echo $message;
+                        } ?>
+                    </div>
+                    <div>
+                        <?php if (isset($errors)) {
+                            foreach ($errors as $values) {
+                                echo '<h4>' . $values . '</h4>';
+                            }
+                        } ?>
+                    </div>
                     <form action="<?= base_url("projects/save") ?>" method="post">
                         <div class="form-group">
                             <label for="project_title">Project Title</label>
@@ -33,19 +45,19 @@
                             <div class="form-group col-md-4">
                                 <label for="sponsored_body">Sponsored Body</label>
                                 <select class="form-control" id="sponsored_body" name="sponsored_body">
-                                    <option>1</option>
+                                    <option value="1">1</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="project_state">Project State</label>
                                 <select class="form-control" id="project_state" name="project_state">
-                                    <option>1</option>
+                                    <option value="1">1</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="project_district">Project District</label>
                                 <select class="form-control" id="project_district" name="project_district">
-                                    <option>1</option>
+                                    <option value="1">1</option>
                                 </select>
                             </div>
 
