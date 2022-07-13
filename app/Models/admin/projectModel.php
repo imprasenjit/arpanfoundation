@@ -36,4 +36,41 @@ class ProjectsModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+
+    public function countAllRows()
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+        return $builder->countAll();
+    }
+
+    public function allRows($start = 0, $limit = 20, $orderBy = 'project_id', $dir = 'DESC')
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $builder->limit($limit, $start);
+        $builder->orderBy($orderBy, $dir);
+
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    public function searchRows($start = 0, $limit = 20, $search, $orderBy = 'project_id', $dir = 'DESC')
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->limit($start, $limit);
+        $builder->orderBy($orderBy, $dir);
+        $builder->like('project_title', $search);
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    public function totalSearchRows($search)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->like('project_title', $search);
+        return $builder->countAll();
+    }
 }
