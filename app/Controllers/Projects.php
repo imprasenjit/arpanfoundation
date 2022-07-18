@@ -100,11 +100,11 @@ class Projects extends AdminBaseController
         if (!empty($records)) {
             foreach ($records as $rows) {
                 $nestedData = array();
-                if ($rows->status == 0) {
-                    $action = '<a href="#!" data-id="' . $rows->project_id . '" data-toggle="tooltip" data-placement="top" title="Approve User" class="btn btn-primary approve"><span class="fa fa-check" aria-hidden="true"></span>&nbsp;Approve</a>';
-                } else {
-                    $action = '<a href="#!" data-id="' . $rows->project_id . '" data-toggle="tooltip" data-placement="top" title="Disapprove User" class="btn btn-danger unapprove"><span class="fa fa-times" aria-hidden="true"></span>&nbsp;Disapprove</a>';
-                }
+                $action = "";
+                $action .= '<a href="#!" data-id="' . $rows->project_id . '" data-toggle="tooltip" data-placement="top" title="View User" class="btn btn-primary view"><span class="fa fa-eye" aria-hidden="true"></span>&nbsp;View</a>';
+                $action .= '<a href="#!" data-id="' . $rows->project_id . '" data-toggle="tooltip" data-placement="top" title="Edit User" class="btn btn-warning edit"><i class="fas fa-pen"></i></span>&nbsp;Edit</a>';
+                $action .= '<a href="#!" data-id="' . $rows->project_id . '" data-toggle="tooltip" data-placement="top" title="Delete User" class="btn btn-danger delete"><i class="fas fa-ban"></i>&nbsp;Delete</a>';
+
                 $nestedData["project_id"] = $rows->project_id;
                 $nestedData["name"] = $rows->project_title;
                 $nestedData["type"] = $rows->project_type;
@@ -122,6 +122,27 @@ class Projects extends AdminBaseController
             "recordsFiltered" => intval($totalFiltered),
             "data" => $data,
         );
+        echo json_encode($json_data);
+    }
+    public function delete_project()
+    {
+        $request = \Config\Services::request();
+        $post = $request->getPost();
+
+        if ($post["project_id"] != '' && $post["project_id"] != 0) {
+            $projectModel = model('App\Models\admin\projectModel');
+            // print_r($post["project_id"]);
+            $projectModel->delete($post["project_id"], true);
+            $json_data = array(
+                "status" => true,
+                "message" => "Record deleted successfully"
+            );
+        } else {
+            $json_data = array(
+                "status" => false,
+                "message" => "Something went wrong."
+            );
+        }
         echo json_encode($json_data);
     }
 }
