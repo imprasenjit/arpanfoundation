@@ -38,7 +38,9 @@
                         </table>
                         <script>
                             $(document).ready(function() {
-                                $("#dtbl").DataTable({
+
+
+                                var table = $("#dtbl").DataTable({
                                     responsive: true,
                                     columnDefs: [{
                                             responsivePriority: 1,
@@ -107,9 +109,9 @@
                                     ]
                                 });
 
-                                $(document).on('click', '.approve', function() {
+                                $(document).on('click', '.delete', function() {
                                     Swal.fire({
-                                        title: 'Please wait.',
+                                        title: 'Please wait. Deletion in progress..',
                                         allowEscapeKey: false,
                                         showCloseButton: true,
                                         allowOutsideClick: () => !Swal.isLoading(),
@@ -119,25 +121,24 @@
                                     });
                                     var id = $(this).attr('data-id');
                                     var el = $(this);
-                                    $.post("<?= base_url('users/approve_user') ?>", {
-                                            user_id: id,
+                                    $.post("<?= base_url('projects/delete_project') ?>", {
+                                            project_id: id,
                                         })
                                         .done(function(data) {
-                                            if (data.status == true) {
-                                                el.empty().html('<span class="fa fa-times" aria-hidden="true"></span>&nbsp;Disapprove');
-                                                el.removeClass('btn-primary').removeClass('approve');
-                                                el.addClass('btn-danger').addClass('unapprove');
+                                            const res = JSON.parse(data);
+                                            if (res.status == true) {
                                                 Swal.fire({
                                                     icon: 'success',
-                                                    title: 'Approved successfully',
+                                                    title: 'Deleted successfully',
                                                     showConfirmButton: false,
                                                     timer: 2500
-                                                })
+                                                });
+                                                table.ajax.reload();
                                             } else {
                                                 Swal.fire({
                                                     icon: 'error',
                                                     title: 'Oops...',
-                                                    text: jsn.msg,
+                                                    text: res.message,
                                                     timer: 2500
                                                 })
                                             }

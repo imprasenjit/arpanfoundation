@@ -16,12 +16,19 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>/projects/add">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Projects</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+
+                        <a class="collapse-item" href="<?= base_url(); ?>/projects">Projects</a>
+                        <a class="collapse-item" href="<?= base_url(); ?>/projects/add">Add New Project</a>
+
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">
