@@ -43,6 +43,7 @@ $routes->post('/registration/create', 'Registration::create');
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->post('/project/add', 'Project::add');
 $routes->post('/project/save', 'Project::save');
+$routes->post('/students/add', 'Students::add');
 
 /*
  * --------------------------------------------------------------------

@@ -49,14 +49,14 @@ abstract class AdminBaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
-    public function layout($view = 'dashboard', $data = [])
+    public function layout($view = 'dashboard', $viewdata = [])
     {
         $session = \Config\Services::session();
         $data = [
             "firstName" => $session->firstname,
             "lastName" => $session->lastname
         ];
-        return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/' . $view . '', $data) . view('admin/requires/footer');
+        return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/' . $view . '', $viewdata) . view('admin/requires/footer');
     }
     public function isLoggedIn()
     {

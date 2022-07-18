@@ -1,0 +1,88 @@
+ERROR - 2022-07-16 00:04:25 --> Unknown column 'created_at' in 'field list'
+CRITICAL - 2022-07-16 00:04:25 --> Undefined variable $form_data
+in APPPATH\Views\admin\projects\projects_entry.php on line 34.
+ 1 APPPATH\Views\admin\projects\projects_entry.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $form_data', 'APPPATH\\Views\\admin\\projects\\projects_entry.php', 34)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\projects\\projects_entry.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/projects/projects_entry', [], true)
+ 5 APPPATH\Controllers\AdminBaseController.php(59): view('admin/projects/projects_entry', [...])
+ 6 APPPATH\Controllers\Projects.php(78): App\Controllers\AdminBaseController->layout('projects/projects_entry', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Projects->save()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Projects))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-16 00:05:45 --> Undefined variable $form_data
+in APPPATH\Views\admin\projects\projects_entry.php on line 34.
+ 1 APPPATH\Views\admin\projects\projects_entry.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $form_data', 'APPPATH\\Views\\admin\\projects\\projects_entry.php', 34)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\projects\\projects_entry.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/projects/projects_entry', [], true)
+ 5 APPPATH\Controllers\AdminBaseController.php(59): view('admin/projects/projects_entry', [...])
+ 6 APPPATH\Controllers\Projects.php(61): App\Controllers\AdminBaseController->layout('projects/projects_entry', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Projects->save()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Projects))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-16 06:23:16 --> Invalid file: home.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('home.php')
+ 2 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('home', [], true)
+ 3 APPPATH\Controllers\Home.php(14): view('home')
+ 4 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Home->welcome()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-16 06:23:34 --> Invalid file: home.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('home.php')
+ 2 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('home', [], true)
+ 3 APPPATH\Controllers\Home.php(14): view('home')
+ 4 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Home->welcome()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-16 06:24:04 --> Invalid file: home.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('home.php')
+ 2 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('home', [], true)
+ 3 APPPATH\Controllers\Home.php(14): view('home')
+ 4 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Home->welcome()
+ 5 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-16 07:22:50 --> Undefined variable $form_data
+in APPPATH\Views\admin\projects\projects_entry.php on line 34.
+ 1 APPPATH\Views\admin\projects\projects_entry.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $form_data', 'APPPATH\\Views\\admin\\projects\\projects_entry.php', 34)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\projects\\projects_entry.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/projects/projects_entry', [], true)
+ 5 APPPATH\Controllers\AdminBaseController.php(59): view('admin/projects/projects_entry', [...])
+ 6 APPPATH\Controllers\Projects.php(61): App\Controllers\AdminBaseController->layout('projects/projects_entry', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Projects->save()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Projects))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-16 22:01:04 --> Undefined property: stdClass::$student_name
+in APPPATH\Views\admin\students\students_entry.php on line 94.
+ 1 APPPATH\Views\admin\students\students_entry.php(94): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$student_name', 'APPPATH\\Views\\admin\\students\\students_entry.php', 94)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\students\\students_entry.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/students/students_entry', [], true)
+ 5 APPPATH\Controllers\AdminBaseController.php(59): view('admin/students/students_entry', [...])
+ 6 APPPATH\Controllers\Students.php(35): App\Controllers\AdminBaseController->layout('students/students_entry', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Students->add()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Students))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-07-16 22:40:24 --> Undefined variable $form_data
+in APPPATH\Views\admin\students\students_entry.php on line 34.
+ 1 APPPATH\Views\admin\students\students_entry.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $form_data', 'APPPATH\\Views\\admin\\students\\students_entry.php', 34)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\students\\students_entry.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/students/students_entry', [], true)
+ 5 APPPATH\Controllers\AdminBaseController.php(59): view('admin/students/students_entry', [...])
+ 6 APPPATH\Controllers\Students.php(61): App\Controllers\AdminBaseController->layout('students/students_entry', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Students->save()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Students))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()

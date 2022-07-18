@@ -5,11 +5,11 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use CodeIgniter\Config\Services;
 
-class Projects extends AdminBaseController
+class Students extends AdminBaseController
 {
     public function index()
     {
-        return $this->layout('projects/projects_list');
+        return $this->layout('students/students_list');
     }
     public function add()
     {
@@ -32,13 +32,13 @@ class Projects extends AdminBaseController
             'end_date' => '',
             'about_the_project' => '',
         ];
-        return $this->layout('projects/projects_entry',["form_data"=>(object)$viewdata]);
+        return $this->layout('students/students_entry',["form_data"=>(object)$viewdata]);
         // return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/projects/projects_entry') . view('admin/requires/footer');
     }
     public function save()
     {
         helper(['form', 'url']);
-        $projectModel = model('App\Models\admin\projectModel');
+        $projectModel = model('App\Models\admin\studentsModel');
         $request = \Config\Services::request();
         $session = \Config\Services::session();
         $rules = [
@@ -58,7 +58,7 @@ class Projects extends AdminBaseController
             $error = [
                 'errors' => $this->validator->getErrors(),
             ];
-            return $this->layout('projects/projects_entry', $error);
+            return $this->layout('students/students_entry', $error);
         } else {
             $data = $request->getPost();
             $insertData = array(
@@ -75,8 +75,8 @@ class Projects extends AdminBaseController
                 'about_project' => $data['about_the_project'],
             );
             $projectModel->insert($insertData);
-            return $this->layout('projects/projects_entry', ["message" => "Data Inserted Successfully"]);
-            // return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/projects/projects_entry', ["message" => "Data Inserted Successfully"]) . view('admin/requires/footer');
+            return $this->layout('students/students_entry', ["message" => "Data Inserted Successfully"]);
+            // return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/students/students_entry', ["message" => "Data Inserted Successfully"]) . view('admin/requires/footer');
         }
         // print_r($request->getPost());
     }
@@ -84,7 +84,7 @@ class Projects extends AdminBaseController
     {
         $request = \Config\Services::request();
         $post = $request->getPost();
-        $projectModel = model('App\Models\admin\projectModel');
+        $projectModel = model('App\Models\admin\studentsModel');
         $columns = array(
             0 => "project_id",
             1 => "project_name",

@@ -24,6 +24,12 @@
                     <span>Projects</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>/students/add">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Students</span></a>
+            </li>
+
 
 
             <!-- Divider -->
