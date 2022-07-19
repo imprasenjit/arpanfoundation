@@ -29,12 +29,12 @@
                     <form action="<?= base_url("projects/save") ?>" method="post">
                         <div class="form-group">
                             <label for="project_title">Project Title</label>
-                            <input type="text" class="form-control" name="project_title" id="project_title" value="<?= $form_data->project_title  ?>">
+                            <input type="text" class="form-control" name="project_title" id="project_title" value="<?= $project_data->project_title  ?>">
                         </div>
                         <div class="form-group">
                             <label for="project_type">Project Type</label>
                             <select class="form-control" id="project_type" name="project_type">
-                                <option value="<?= $form_data->project_type ?>"><?= $form_data->project_type ?></option>
+                                <option value="<?= $project_data->project_type ?>"><?= $project_data->project_type ?></option>
                                 <option value="Govt">Govt</option>
                                 <option value="Central">Central</option>
                                 <option value="CSR"></option>
@@ -65,17 +65,17 @@
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="location">Location</label>
-                                <input type="text" class="form-control" name="location" id="location" value="<?= $form_data->location ?>">
+                                <input type="text" class="form-control" name="location" id="location" value="<?= $project_data->location ?>">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="session">Session</label>
-                                <input type="text" class="form-control" name="session" id="session" value="<?= $form_data->session ?>">
+                                <input type="text" class="form-control" name="session" id="session" value="<?= $project_data->session ?>">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="status">Status</label>
                                 <select class="form-control" id="status" name="status">
 
-                                    <option value="<?= $form_data->session ?>"><?= $form_data->session ?></option>
+                                    <option value="<?= $project_data->session ?>"><?= $project_data->session ?></option>
                                     <option value="Ongoing">Ongoing</option>
                                     <option value="Completed">Completed</option>
                                     <option value="Not_started">Not Started</option>
@@ -86,7 +86,7 @@
                             <div class="form-group col-md-4">
                                 <label for="start_date">Start Date</label>
                                 <div class='input-group date' id='start_date'>
-                                    <input type='text' class="form-control" name="start_date" />
+                                    <input type='text' class="form-control" name="start_date" value="<?= date("d/m/Y", strtotime($project_data->start_date)); ?>" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
@@ -95,13 +95,14 @@
                                     $('#start_date').datepicker({
                                         autoclose: true,
                                         todayHighlight: true,
+                                        format: 'dd/mm/yyyy',
                                     });
                                 </script>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="end_date">End Date</label>
                                 <div class='input-group date' id='end_date'>
-                                    <input type='text' class="form-control" name="end_date" />
+                                    <input type='text' class="form-control" name="end_date" value="<?= date("d/m/Y", strtotime($project_data->end_date)) ?>" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
@@ -109,6 +110,7 @@
                                     $('#end_date').datepicker({
                                         autoclose: true,
                                         todayHighlight: true,
+                                        format: 'dd/mm/yyyy',
                                     });
                                 </script>
                             </div>
@@ -117,16 +119,16 @@
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="project_value">Project value</label>
-                                <input type="text" class="form-control" name="project_value" id="project_value" value="<?= $form_data->project_value ?>">
+                                <input type="text" class="form-control" name="project_value" id="project_value" value="<?= $project_data->project_value ?>">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="about_the_project">About the project</label>
-                                <textarea class="form-control" id="about_the_project" name="about_the_project" rows="3"><?= $form_data->about_the_project ?></textarea>
+                                <textarea class="form-control" id="about_the_project" name="about_the_project" rows="3"><?= $project_data->about_the_project ?></textarea>
                             </div>
 
                         </div>
                         <div class="row">
-                            <button class="btn btn-primary btn-block">Submit</button>
+                            <button class="btn btn-primary btn-block"><?= $submit_button ?></button>
                         </div>
                     </form>
                 </div>

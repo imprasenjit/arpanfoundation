@@ -24,6 +24,19 @@ class Projects extends AdminBaseController
         return $this->layout('projects/projects_entry');
         // return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/projects/projects_entry') . view('admin/requires/footer');
     }
+    public function edit($project_id)
+    {
+        if (!$this->isLoggedIn()) {
+            return redirect()->route('login');
+        }
+        $projectModel = model('App\Models\admin\projectModel');
+        $data = $projectModel->getProjectById($project_id);
+        // $data["action"] = "project/update_project";
+        // $data["submit_button"] = "Update";
+        // array_push($data, ["action" => "project/update_project", "submit_button" => "Update"]);
+        return $this->layout('projects/projects_entry', ["project_data" => $data[0], "submit_button" => "Update"]);
+        // return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/projects/projects_entry') . view('admin/requires/footer');
+    }
     public function save()
     {
         helper(['form', 'url']);
@@ -102,7 +115,7 @@ class Projects extends AdminBaseController
                 $nestedData = array();
                 $action = "";
                 $action .= '<a href="#!" data-id="' . $rows->project_id . '" data-toggle="tooltip" data-placement="top" title="View User" class="btn btn-primary view"><span class="fa fa-eye" aria-hidden="true"></span>&nbsp;View</a>';
-                $action .= '<a href="#!" data-id="' . $rows->project_id . '" data-toggle="tooltip" data-placement="top" title="Edit User" class="btn btn-warning edit"><i class="fas fa-pen"></i></span>&nbsp;Edit</a>';
+                $action .= '<a href="' . base_url('projects/edit/' . '' . $rows->project_id) . '" data-toggle="tooltip" data-placement="top" title="Edit User" class="btn btn-warning edit"><i class="fas fa-pen"></i></span>&nbsp;Edit</a>';
                 $action .= '<a href="#!" data-id="' . $rows->project_id . '" data-toggle="tooltip" data-placement="top" title="Delete User" class="btn btn-danger delete"><i class="fas fa-ban"></i>&nbsp;Delete</a>';
 
                 $nestedData["project_id"] = $rows->project_id;

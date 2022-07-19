@@ -15,6 +15,7 @@ class ProjectsModel extends Model
     protected $useSoftDeletes = true;
 
     protected $allowedFields = [
+        'project_id',
         'project_title',
         'project_type',
         'sponsered_body',
@@ -43,6 +44,14 @@ class ProjectsModel extends Model
         $db      = \Config\Database::connect();
         $builder = $db->table($this->table);
         return $builder->countAll();
+    }
+    public function getProjectById($project_id)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->where('project_id', $project_id);
+        $query = $builder->get();
+        return $query->getResult();
     }
 
     public function allRows($start = 0, $limit = 20, $orderBy = 'project_id', $dir = 'DESC')
