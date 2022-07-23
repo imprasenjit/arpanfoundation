@@ -30,13 +30,13 @@ class ProjectsModel extends Model
     ];
 
     protected $useTimestamps = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    // protected $createdField  = 'created_at';
+    // protected $updatedField  = 'updated_at';
+    // protected $deletedField  = 'deleted_at';
 
     protected $validationRules    = [];
     protected $validationMessages = [];
-    protected $skipValidation     = false;
+    protected $skipValidation     = true;
 
 
     public function countAllRows()
@@ -81,5 +81,12 @@ class ProjectsModel extends Model
         $builder = $db->table($this->table);
         $builder->like('project_title', $search);
         return $builder->countAll();
+    }
+    public function update_record($id, $data)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->where($this->primaryKey, $id);
+        return $builder->update($data);
     }
 }

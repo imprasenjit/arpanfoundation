@@ -9,7 +9,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Add Projects</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?= $submit_button ?> Project</h6>
 
                 </div>
                 <!-- Card Body -->
@@ -26,7 +26,13 @@
                             }
                         } ?>
                     </div>
-                    <form action="<?= base_url("projects/save") ?>" method="post">
+                    <form action="<?= base_url($action) ?>" method="post">
+                        <?php
+
+                        if (isset($project_id)) {
+                            echo '<input type="hidden" name="project_id" value="' . $project_id . '">';
+                        }
+                        ?>
                         <div class="form-group">
                             <label for="project_title">Project Title</label>
                             <input type="text" class="form-control" name="project_title" id="project_title" value="<?= $project_data->project_title  ?>">
