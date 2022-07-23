@@ -106,7 +106,7 @@ class Projects extends AdminBaseController
             $insertData = array(
                 'project_title' => $data['project_title'],
                 'project_type' => $data['project_type'],
-                'sponsered_body' => $data['sponsered_body'],
+                'sponsored_body' => $data['sponsored_body'],
                 'project_state' => $data['project_state'],
                 'project_district' => $data['project_district'],
                 'location' => $data['location'],
