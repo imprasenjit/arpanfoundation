@@ -26,7 +26,8 @@ class ProjectsModel extends Model
         'status',
         'start_date',
         'end_date',
-        'about_project',
+        'project_value',
+        'about_the_project',
     ];
 
     protected $useTimestamps = true;
