@@ -28,6 +28,7 @@
                             }
                         } ?>
                     </div>
+
                     <form action="<?= base_url($action) ?>" method="post">
                         <?php
 
@@ -35,6 +36,8 @@
                             echo '<input type="hidden" name="project_id" value="' . $project_id . '">';
                         }
                         ?>
+
+
                         <div class="form-group">
                             <label for="project_title">Project Title</label>
                             <input type="text" class="form-control" name="project_title" id="project_title" value="<?= $project_data->project_title  ?>">
@@ -42,7 +45,7 @@
                         <div class="form-group">
                             <label for="project_type">Project Type</label>
                             <select class="form-control" id="project_type" name="project_type">
-                                <option value="<?= $project_data->project_type ?>"><?= $project_data->project_type ?></option>
+                                <option value=""></option>
                                 <option value="Govt">Govt</option>
                                 <option value="Central">Central</option>
                                 <option value="CSR"></option>
