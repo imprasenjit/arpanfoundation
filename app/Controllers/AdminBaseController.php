@@ -49,6 +49,12 @@ abstract class AdminBaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
+    public function pre($data)
+    {
+        echo '<pre>';
+        print_r($data);
+        die;
+    }
     public function layout($view = 'dashboard', $viewData = [])
     {
         $session = \Config\Services::session();

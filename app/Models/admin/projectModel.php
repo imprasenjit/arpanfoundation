@@ -22,6 +22,7 @@ class ProjectsModel extends Model
         'project_state',
         'project_district',
         'location',
+        'sponsored_body',
         'session',
         'status',
         'start_date',

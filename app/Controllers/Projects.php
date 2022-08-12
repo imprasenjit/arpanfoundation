@@ -19,6 +19,7 @@ class Projects extends AdminBaseController
 
         $data = [
             'project_title' => "",
+            'project_value' => "",
             'project_type' => "",
             'sponsored_body' => "",
             'project_state' => '',
@@ -106,18 +107,20 @@ class Projects extends AdminBaseController
             $insertData = array(
                 'project_title' => $data['project_title'],
                 'project_type' => $data['project_type'],
-                'sponsered_body' => $data['sponsered_body'],
+                'sponsored_body' => $data['sponsered_body'],
                 'project_state' => $data['project_state'],
                 'project_district' => $data['project_district'],
                 'location' => $data['location'],
+                'sponsored_body' => $data['sponsored_body'],
                 'session' => $data['session'],
                 'status' => $data['status'],
-                'start_date' => $data['start_date'],
-                'end_date' => $data['end_date'],
+                'start_date' => date('Y-m-d', strtotime($data['start_date'])),
+                'end_date' => date('Y-m-d', strtotime($data['end_date'])),
                 'about_project' => $data['about_the_project'],
             );
+            // $this->pre($insertData);
             $projectModel->insert($insertData);
-            return $this->layout('projects/projects_entry', ["message" => "Data Inserted Successfully"]);
+            return redirect()->to('projects/');
             // return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/projects/projects_entry', ["message" => "Data Inserted Successfully"]) . view('admin/requires/footer');
         }
         // print_r($request->getPost());
@@ -212,7 +215,7 @@ class Projects extends AdminBaseController
                 'about_project' => $data['about_the_project'],
             );
             if ($projectModel->update_record($data['project_id'], $updateData)) {
-                return redirect()->to('projects/edit/' . $data['project_id']);;
+                return redirect()->to('projects/edit/' . $data['project_id']);
             } else {
                 return $this->layout('projects/projects_entry', ["action" => "projects/update", "project_data" => (object)$updateData, 'errors' => [], "submit_button" => "Update"]);
             }
