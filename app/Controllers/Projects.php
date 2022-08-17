@@ -107,7 +107,7 @@ class Projects extends AdminBaseController
             $insertData = array(
                 'project_title' => $data['project_title'],
                 'project_type' => $data['project_type'],
-                'sponsored_body' => $data['sponsered_body'],
+
                 'project_state' => $data['project_state'],
                 'project_district' => $data['project_district'],
                 'location' => $data['location'],
@@ -116,7 +116,7 @@ class Projects extends AdminBaseController
                 'status' => $data['status'],
                 'start_date' => date('Y-m-d', strtotime($data['start_date'])),
                 'end_date' => date('Y-m-d', strtotime($data['end_date'])),
-                'about_project' => $data['about_the_project'],
+                'about_the_project' => $data['about_the_project'],
             );
             // $this->pre($insertData);
             $projectModel->insert($insertData);
@@ -204,7 +204,7 @@ class Projects extends AdminBaseController
             $updateData = array(
                 'project_title' => $data['project_title'],
                 'project_type' => $data['project_type'],
-                'sponsored_body' => $data['sponsered_body'],
+                'sponsored_body' => $data['sponsored_body'],
                 'project_state' => $data['project_state'],
                 'project_district' => $data['project_district'],
                 'location' => $data['location'],
@@ -212,7 +212,7 @@ class Projects extends AdminBaseController
                 'status' => $data['status'],
                 'start_date' => date('Y-m-d', strtotime($data['start_date'])),
                 'end_date' => date('Y-m-d', strtotime($data['end_date'])),
-                'about_project' => $data['about_the_project'],
+                'about_the_project' => $data['about_the_project'],
             );
             if ($projectModel->update_record($data['project_id'], $updateData)) {
                 return redirect()->to('projects/edit/' . $data['project_id']);
