@@ -18,9 +18,9 @@ class Projects extends AdminBaseController
         }
 
         $data = [
-            'project_title' => '',
-            'project_type' => '',
-            'sponsored_body' => '',
+            'project_title' => "",
+            'project_type' => "",
+            'sponsored_body' => "",
             'project_state' => '',
             'project_district' => '',
             'location' => '',
@@ -41,72 +41,72 @@ class Projects extends AdminBaseController
         $request = \Config\Services::request();
         // $session = \Config\Services::session();
         $data = $request->getPost();
-        $rules =[
+        $rules = [
 
-                'project_title' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'Project title is required',
-                    ]
-                ],
-                'project_type' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'Project type is required',
-                    ]
-                ],
-                'sponsored_body' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'Project Sponsored body is required',
-                    ]
-                ],
-                'project_state' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'Project State is required',
-                    ]
-                ],
-                'project_district' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'Project state is required',
-                    ]
-                ],
-                'location' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'Project location is required',
-                    ]
-                ],
-                'session' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'Project session is required',
-                    ]
-                ],
-                'status' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'Project Status is required',
-                    ]
-                ],
-                'start_date' => 'required',
-                'end_date' => 'required',
+            'project_title' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Project title is required',
+                ]
+            ],
+            'project_type' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Project type is required',
+                ]
+            ],
+            'sponsored_body' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Project Sponsored body is required',
+                ]
+            ],
+            'project_state' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Project State is required',
+                ]
+            ],
+            'project_district' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Project state is required',
+                ]
+            ],
+            'location' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Project location is required',
+                ]
+            ],
+            'session' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Project session is required',
+                ]
+            ],
+            'status' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'Project Status is required',
+                ]
+            ],
+            'start_date' => 'required',
+            'end_date' => 'required',
 
-                'project_value' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'project value is required',
-                    ]
-                ],
-                'about_the_project' => [
-                    'rules'  => 'required',
-                    'errors' => [
-                        'required' => 'About project is required',
-                    ]
-                ],
-            ];
+            'project_value' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'project value is required',
+                ]
+            ],
+            'about_the_project' => [
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'About project is required',
+                ]
+            ],
+        ];
         if (!$this->validate($rules)) {
             return $this->layout('projects/projects_entry', ["action" => "projects/save", "project_data" => (object)$data, 'errors' => $this->validator->getErrors(), "submit_button" => "Add"]);
         } else {
@@ -114,19 +114,20 @@ class Projects extends AdminBaseController
             $insertData = array(
                 'project_title' => $data['project_title'],
                 'project_type' => $data['project_type'],
-                'sponsored_body' => $data['sponsored_body'],
+                'sponsered_body' => $data['sponsered_body'],
                 'project_state' => $data['project_state'],
                 'project_district' => $data['project_district'],
                 'location' => $data['location'],
+                'sponsored_body' => $data['sponsored_body'],
                 'session' => $data['session'],
                 'status' => $data['status'],
                 'start_date' => $data['start_date'],
                 'end_date' => $data['end_date'],
-                'project_value' => $data['project_value'],
-                'about_the_project' => $data['about_the_project'],
+                'about_project' => $data['about_the_project'],
             );
+            // $this->pre($insertData);
             $projectModel->insert($insertData);
-            return $this->layout('projects/projects_entry', ["message" => "Data Inserted Successfully"]);
+            return redirect()->to('projects/');
             // return view('admin/requires/header') . view('admin/requires/sidebar', $data) . view('admin/projects/projects_entry', ["message" => "Data Inserted Successfully"]) . view('admin/requires/footer');
         }
         // print_r($request->getPost());
@@ -218,11 +219,10 @@ class Projects extends AdminBaseController
                 'status' => $data['status'],
                 'start_date' => date('Y-m-d', strtotime($data['start_date'])),
                 'end_date' => date('Y-m-d', strtotime($data['end_date'])),
-                'project_value' => $data['project_value'],
-                'about_the_project' => $data['about_the_project'],
+                'about_project' => $data['about_the_project'],
             );
             if ($projectModel->update_record($data['project_id'], $updateData)) {
-                return redirect()->to('projects/edit/' . $data['project_id']);;
+                return redirect()->to('projects/edit/' . $data['project_id']);
             } else {
                 return $this->layout('projects/projects_entry', ["action" => "projects/update", "project_data" => (object)$updateData, 'errors' => [], "submit_button" => "Update"]);
             }
